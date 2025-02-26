@@ -13,10 +13,11 @@ import NewPost from "./routes/NewPost.jsx";
 // Rotas
 const router = createBrowserRouter([
   {
+    path: "/",
     element: <App />,
     children: [
       {
-        path: "/",
+        path: "/home",
         element: <Home />,
       },
       {
