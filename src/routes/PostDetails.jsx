@@ -8,6 +8,9 @@ const PostDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  console.log(id);
+  
+
   // URL da API
   const API_URL = "http://localhost:5000/api";
 
@@ -20,7 +23,9 @@ const PostDetail = () => {
         setLoading(false);
       } catch (error) {
         console.error("Erro ao buscar post:", error);
-        setError("Não foi possível carregar o post. Tente novamente mais tarde.");
+        setError(
+          "Não foi possível carregar o post. Tente novamente mais tarde."
+        );
         setLoading(false);
       }
     };
@@ -34,23 +39,24 @@ const PostDetail = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Link 
-        to="/" 
-        className="inline-block mb-6 text-blue-600 hover:underline"
-      >
+      <Link to="/" className="inline-block mb-6 text-neutral-50 hover:underline">
         &larr; Voltar para a página inicial
       </Link>
-      
-      <article className="bg-white p-8 rounded-lg shadow-md">
-        <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
-        {post.author && (
+
+      <article className="bg-neutral-900 p-8 rounded-lg shadow-md">
+        <h1 className="text-3xl font-bold mb-4">
+          {post?.title || "Sem título"}
+        </h1>
+        {post?.author && (
           <p className="text-gray-600 mb-2">Por: {post.author}</p>
         )}
         <p className="text-gray-500 mb-6">
-          {new Date(post.created_at).toLocaleDateString('pt-BR')}
+          {post?.created_at
+            ? new Date(post.created_at).toLocaleDateString("pt-BR")
+            : ""}
         </p>
         <div className="prose max-w-none">
-          <p>{post.body}</p>
+          <p>{post?.body || "Conteúdo não disponível"}</p>
         </div>
       </article>
     </div>
