@@ -10,6 +10,7 @@ import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import Home from "./routes/Home.jsx";
 import NewPost from "./routes/NewPost.jsx";
 import PostDetail from "./routes/PostDetails.jsx";
+import Admin from "./routes/Admin.jsx";
 
 // Rotas
 const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/posts/:id",
         element: <PostDetail />,
+      },
+      {
+        path: "/admin",
+        element: <Admin />,
       },
     ],
   },

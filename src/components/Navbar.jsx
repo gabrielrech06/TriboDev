@@ -22,6 +22,12 @@ const Navbar = () => {
           >
             Novo Post
           </Link>
+          <Link
+            className="opacity-80 transition duration-300 hover:opacity-100 pl-3"
+            to={"/admin"}
+          >
+            Gerenciar
+          </Link>
         </li>
       </ul>
     </nav>
