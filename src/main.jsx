@@ -14,32 +14,32 @@ import Admin from "./routes/Admin.jsx";
 
 // Rotas
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/home",
-        element: <Home />,
-      },
-      {
-        path: "/new",
-        element: <NewPost />,
-      },
-      {
-        path: "/posts/:id",
-        element: <PostDetail />,
-      },
-      {
-        path: "/admin",
-        element: <Admin />,
-      },
-    ],
-  },
+    {
+        path: "/",
+        element: <App />,
+        children: [
+            {
+                path: "/home",
+                element: <Home />,
+            },
+            {
+                path: "/new",
+                element: <NewPost />,
+            },
+            {
+                path: "/posts/:id",
+                element: <PostDetail />,
+            },
+            {
+                path: "/admin",
+                element: <Admin />,
+            },
+        ],
+    },
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>
+    <StrictMode>
+        <RouterProvider router={router} />
+    </StrictMode>
 );
